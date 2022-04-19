@@ -20,7 +20,7 @@ daejeon_data <- data_raw[data_raw$state == "대전",]
 
 # 지도에 시각화하기
 library(ggmap)
-ggmap_key <- "AIzaSyDpxBBQCM4v1I1-TiJmGFVz0nI3iSTxazk"
+ggmap_key <- GOOGLE_API_KEY
 register_google(ggmap_key)
 
 ## 지오코드 받아오기 

@@ -8,7 +8,7 @@ apt_price_data <- read.csv("week2/data/subway_APT_data_files/아파트_실거래
 # 지하철역 데이터 가공하기
 ## 1. 지하철역 좌표 정보 구하기
 library(ggmap)
-googleAPIkey <- "AIzaSyB1mwuV70q_AsM5VEEtE9mTekSeAKd7ONw" # "AIzaSyDpxBBQCM4v1I1-TiJmGFVz0nI3iSTxazk"
+googleAPIkey <- GOOGLE_API_KEY
 register_google(key = googleAPIkey)
 
 station_geocode <- geocode(subway_station_data$구주소)

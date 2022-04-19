@@ -8,7 +8,7 @@ head(apt_price_data)
 
 # 지하철역 데이터 가공하기
 library(ggmap)
-googleAPIkey <- "AIzaSyB1mwuV70q_AsM5VEEtE9mTekSeAKd7ONw"
+googleAPIkey <- GOOGLE_API_KEY
 register_google(key = googleAPIkey)
 
 library(tidyverse)

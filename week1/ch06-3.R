@@ -2,7 +2,7 @@
 library(ggmap)
 
 # API 키 등록
-register_google(key = "AIzaSyDpxBBQCM4v1I1-TiJmGFVz0nI3iSTxazk")
+register_google(key = GOOGLE_API_KEY)
 
 # 지도 가져오기
 gg_seoul <- get_googlemap("seoul", maptype = "roadmap")
