@@ -1,0 +1,145 @@
+---
+title: "R Markdown"
+author: "danalee"
+date: '2022 5 2 '
+output: html_document
+---
+
+# 제목1
+## 제목2
+### 제목3
+#### 제목4
+##### 제목5
+###### 제목6
+
+제목7
+=====
+제목8
+-----
+
+일반 폰트 사이즈
+
+*이탤릭체*  
+_이탤릭체_  
+**볼드체**  
+__볼드체__  
+
+* 목록
+  + 목록
+    - 목록
+
+1. 순서 있는 글머리 기호
+2) 순서 있는 글머리 기호  
+    A. 순서 있는 글머리 기호
+    B) 순서 있는 글머리 기호
+    C) 순서 있는 글머리 기호
+
+네이버 연결1 (https://www.naver.com/)  
+[네이버 연결2](https://www.naver.com/)
+
+이미지 삽입
+![이모티콘](https://abs.twimg.com/emoji/v2/svg/1f914.svg)
+
+<!-- 수식 입력 -->
+$$
+y_{i} = \sqrt[3]{x_{i}} + \sum_{1}^{n}
+$$
+
+$ y_{i} = \sqrt[3]{x_{i}} + \sum_{1}^{n} $
+
+
+줄 바꿈이 될까?
+지금 엔터쳤는데 줄이 바뀔까? 
+공백을 한 개 줬는데 될까?  
+공백 두 개 줬는데 이제 될까?
+
+
+수평선 그리기  
+
+******
+
+_______
+
+
+<!-- 표 그리기 -->
+구분|내용
+-|-
+이름|danalee
+나이|26
+
+```{r test1, warning=FALSE}
+a = -5:5
+b = a^3
+c = data.frame(a,b)
+
+library(ggplot2)
+ggplot(data=c, aes(x=a, y=b)) +
+  geom_point() +
+  geom_line(color="BLUE")
+```
+
+
+### eval=FALSE
+코드 실행 안함
+
+### include=FALSE
+코드 실행되지만, 코드와 결과 출력 안함
+
+### echo=FALSE
+코드 실행되지만, 코드 출력 안하고 결과만 출력
+
+### results="hide"
+print 결과물 출력 안함
+
+### fig.show="hide"
+plot 결과물 출력 안함
+
+### message=FALSE
+R 코드 실행시 메시지 출력 안함
+
+### warning=FALSE
+경고문 출력 안함
+
+
+### mtcars 데이터셋의 요약
+
+mtcars 데이터셋의 행과 열의 수는 각각 `r dim(mtcars)`개이며, 이 중 hp 열의 평균은 `r round(mean(mtcars$hp), 2)`이다.
+
+
+|Default|Left|Right|Center|
+|--|:-|---:|:----:|
+|A팀|deinitice|100|연습중|
+|B팀|Jung|90|추가|
+
+
+``` {r knitr_table, results = "asis"}
+library(knitr)
+kable(head(iris, 10),
+      caption = "knitr 패키지와 kable() 함수를 이용한 표 그리기",
+      align = c("c", "l", "l", "l", "r"))
+```
+
+
+``` {r xtable, results="asis"}
+library(xtable)
+print(xtable(head(mtcars), 
+             caption = "xtable 패키지를 활용한 표 그리기"),
+      type = "html",
+      html.table.attributes = "border=2")
+```
+
+
+``` {r stargazer_table, results = "asis"}
+library(stargazer)
+stargazer(head(mtcars), summary=F,
+          type="html",
+          title="stargazer 패키지를 활용한 표 그리기")
+```
+
+
+``` {r dt_table}
+library(DT)
+datatable(iris,
+          caption = "DT 패키지를 활용한 표 그리기",
+          filter="top")
+```
