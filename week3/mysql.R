@@ -48,3 +48,4 @@ dbSendQuery(con,
             "delete from economics
             where date = '2022-04-29'")
 
+#안녕:) 메롱
