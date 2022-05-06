@@ -1,0 +1,64 @@
+---
+title: "DashBoard Example - valuebox"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(ggplot2)
+library(knitr)
+```
+
+Row1
+-----------------------------------------------------------------------
+### valuebox Example1
+``` {r}
+valueBox(42,
+         icon = "fa-github",
+         href = "https://github.com/")
+```
+
+### # of Bit Coin
+``` {r}
+num = 8
+valueBox(num, 
+         icon = "fa-bitcoin",
+         color = "info")
+```
+
+### valuebox Example3
+``` {r}
+num = 50
+valueBox(num, 
+         caption = "APPLE PAY",
+         icon = "fa-bluetooth",
+         color = ifelse(num > 10, "warning", "primary"))
+```
+
+### valuebox Example4
+``` {r}
+valueBox(107,
+         caption = "AWS",
+         icon = "fa-cannabis",
+         color = "success")
+```
+
+
+Row2
+-----------------
+
+### ggplot2 graph
+``` {r}
+ggplot(data = mtcars) +
+  geom_bar(mapping = aes(x=cyl, fill=as.factor(am)),
+           position="dodge") +
+  theme(legend.position="blank")
+```
+
+### Tabular data
+``` {r}
+kable(mtcars)
+```
