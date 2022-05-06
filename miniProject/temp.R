@@ -76,3 +76,5 @@ data_strr066 <- getResponseByDataFrame("STRR066")
 
 ### STRR067 시도별 음식물자원화시설 시설용량대비 반입비율 ###
 data_strr067 <- getResponseByDataFrame("STRR067")
+
+
