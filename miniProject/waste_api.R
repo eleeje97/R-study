@@ -1,5 +1,6 @@
 library(httr)
 library(dplyr)
+library(jsonlite)
 
 # api에 보낼 파라미터 값
 auth <- read.table("miniProject/data/auth_data.txt")
@@ -21,6 +22,10 @@ getResponseByDataFrame <- function(pid) {
   res_df <- res %>% content(as = "text", encoding = "UTF-8") %>% fromJSON()
   return(res_df$data)
 }
+
+### PPP006 음식물류 폐기물 종량제 물품 제작현황 ###
+data_ppp006 <- getResponseByDataFrame("PPP006") %>% filter(CTS_JIDT_NM %in% gyeonggi_sigungu)
+head(data_ppp006)
 
 
 ### PPP007 음식물류 폐기물 종량제 물품 판매현황 ###
