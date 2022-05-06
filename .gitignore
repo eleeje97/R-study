@@ -40,3 +40,6 @@ vignettes/*.pdf
 
 # Large files
 /week2/data/한국복지패널데이터/Koweps_hpc10_2015_beta1.sav
+
+# Auth files
+/miniProject/data/auth_data.txt
